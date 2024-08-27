@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const userRoutes = require("./routes/userRoutes");
 const loggingMiddleware = require("./middleware/loggingMiddleware");
 const errorMiddleware = require("./middleware/errorMiddleware");
+const queueRoutes = require('./routes/queueRoutes');
 
 require("dotenv").config();
 const connectDB = require("./config/db");
@@ -21,6 +22,7 @@ app.use(loggingMiddleware);
 
 // routes
 app.use("/api/user", userRoutes);
+app.use('/api/queue', queueRoutes);
 
 // Basic route
 app.get("/", (req, res) => {
