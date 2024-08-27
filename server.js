@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan"); 
 const userRoutes = require("./routes/userRoutes");
 const loggingMiddleware = require("./middleware/loggingMiddleware");
 const errorMiddleware = require("./middleware/errorMiddleware");
@@ -11,7 +12,8 @@ connectDB();
 
 const port = process.env.PORT || 8880;
 
-// Middleware to parse JSON
+// Middleware
+app.use(morgan('dev'));
 app.use(express.json());
 
 // Apply logging middleware globally
