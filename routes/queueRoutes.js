@@ -7,7 +7,7 @@ const {
   clearQueue,
 } = require("../controllers/queueController");
 const { processRequests } = require("../controllers/requestController");
-const authMiddleware = require("../middleware/authMiddleware");
+const authMiddleware = require("../middleware/authmiddleware");
 const loggingMiddleware = require("../middleware/loggingMiddleware");
 
 router.use(loggingMiddleware);
